@@ -1,4 +1,5 @@
 import sys
+import random
 #import matrix in the form a b c;d e f;h i j;.k l m;o p q;r s t;
 #where the matrix : [a b c] is the payoff matrix for player 1 and [k l m] is the payoff matrix for the second player
 #                  [e f g]                                       [o p q]
@@ -8,11 +9,12 @@ import sys
 #               [0 0 0]
 
 class Matrix:
-    def __init__(self, stringInput):
+    def __init__(self, size):
         self.matrix = list()
-        tempMatrix = stringInput.split(";")
-        for r in tempMatrix:
-            self.matrix.append(r.split(" "))
+        for i in range(0,size):
+            self.matrix.append(list())
+            for j in range(0, size):
+                self.matrix[i].append(random.randint(-10,10))
     
     def get(self, i, j):
         return self.matrix[i][j]
@@ -26,8 +28,8 @@ class Matrix:
 
 inputMatrix = sys.stdin.read()
 flatMatricies = inputMatrix.split(".")
-payoffMatrixA = Matrix(flatMatricies[0])
-payoffMatrixB = Matrix(flatMatricies[1])
+payoffMatrixA = Matrix(5)
+payoffMatrixB = Matrix(3)
 
 payoffMatrixA.print()
 payoffMatrixB.print()
