@@ -119,7 +119,7 @@ findDominantStrats()
 playerAPotentialPure = set()
 for colIndex in range(0, payoffMatrixA.getSize()):
     col = payoffMatrixA.getCol(colIndex)
-    pair = str(col.index(max(col))) +"," str(colIndex)
+    pair = str(col.index(max(col))) + "," + str(colIndex)
     playerAPotentialPure.add(pair)
 
 playerAPotentialPure = list()
