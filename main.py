@@ -112,10 +112,10 @@ elif len(weaklyDominant) > 0:
 #player a
 for colIndex in range(0, payoffMatrixA.getSize()):
     col = payoffMatrixA.getCol(colIndex)
-    
+
     #for outcome in col:
 
-print(a)
+print("A")
 payoffMatrixA.print()
-print(b)
+print("B")
 payoffMatrixB.print()
