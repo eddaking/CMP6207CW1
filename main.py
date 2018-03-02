@@ -63,7 +63,7 @@ for testingIndex in range(0,len(vals)):
             if vals[testingIndex][0] < vals[rowIndex][1]:
                 dominant = False
                 break
-            elif vals[testingIndex][0] = vals[rowIndex][1]:
+            elif vals[testingIndex][0] == vals[rowIndex][1]:
                 strictly = False
     if dominant:
         if strictly:
