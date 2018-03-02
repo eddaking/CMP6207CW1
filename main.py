@@ -119,13 +119,13 @@ findDominantStrats()
 playerAPotentialPure = set()
 for colIndex in range(0, payoffMatrixA.getSize()):
     col = payoffMatrixA.getCol(colIndex)
-    pair = [col.index(max(col)), colIndex]
+    pair = str(col.index(max(col))) +"," str(colIndex)
     playerAPotentialPure.add(pair)
 
 playerAPotentialPure = list()
 for rowIndex in range(0, payoffMatrixB.getSize()):
     row = payoffMatrixB.getRow(rowIndex)
-    pair = [rowIndex, row.index(max(row))]
+    pair = str(rowIndex) + "," + str(row.index(max(row)))
     playerBPotentialPure.add(pair)
 
 pureStrats = playerAPotentialPure.intersection(playerBPotentialPure)
