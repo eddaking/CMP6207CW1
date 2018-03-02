@@ -22,11 +22,11 @@ class Matrix:
         return self.matrix[i][j]
 
     def getRow(self, i):
-        return matrix[i]
+        return self.matrix[i]
 
     def getCol(self, j):
         output = list()
-        for row in matrix:
+        for row in self.matrix:
             output.append(row[j])
         return output
 
