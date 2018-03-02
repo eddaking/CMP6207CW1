@@ -8,21 +8,20 @@ import sys
 #               [0 0 0]
 
 class Matrix:
-    matrix = list()
+    self.matrix = list()
     def __init__(self, stringInput):
-        matrix = list()
         tempMatrix = stringInput[0].split(";")
-        for r in matrix:
-            matrix.append(r.split(" "))
+        for r in tempMatrix:
+            self.matrix.append(r.split(" "))
     
     def get(self, i, j):
-        return matrix[i][j]
+        return self.matrix[i][j]
 
     def setElem(self, i, j, val):
-        matrix[i][j] = val
+        self.matrix[i][j] = val
     
     def print(self):
-        for r in matrix:
+        for r in self.matrix:
             print(r)
 
 inputMatrix = sys.stdin.read()
