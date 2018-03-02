@@ -12,6 +12,7 @@ class Matrix:
         self.matrix = list()
         tempMatrix = stringInput[0].split(";")
         for r in tempMatrix:
+            print(r.split(" "))
             self.matrix.append(r.split(" "))
     
     def get(self, i, j):
