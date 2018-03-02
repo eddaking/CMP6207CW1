@@ -10,9 +10,8 @@ import sys
 class Matrix:
     def __init__(self, stringInput):
         self.matrix = list()
-        tempMatrix = stringInput[0].split(";")
+        tempMatrix = stringInput.split(";")
         for r in tempMatrix:
-            print(r.split(" "))
             self.matrix.append(r.split(" "))
     
     def get(self, i, j):
