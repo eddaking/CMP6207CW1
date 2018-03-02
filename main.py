@@ -103,8 +103,24 @@ def findDominantStrats():
     elif len(weaklyDominant) > 0:
         print("Player B has a strictly dominant strategy with " + str(weaklyDominant[0]))
 
+def findPureStrats():
+    playerAPotentialPure = set()
+    for colIndex in range(0, payoffMatrixA.getSize()):
+        col = payoffMatrixA.getCol(colIndex)
+        pair = str(col.index(max(col))) + "," + str(colIndex)
+        playerAPotentialPure.add(pair)
 
+    playerBPotentialPure = set()
+    for rowIndex in range(0, payoffMatrixB.getSize()):
+        row = payoffMatrixB.getRow(rowIndex)
+        pair = str(rowIndex) + "," + str(row.index(max(row)))
+        playerBPotentialPure.add(pair)
 
+    pureStrats = playerAPotentialPure.intersection(playerBPotentialPure)
+    if len(pureStrats) > 0:
+        print("Pure strategies: " + pureStrats)
+    else:
+        print("There are no Pure Strategies")
 matrixSize = int(sys.argv[1])
 payoffMatrixA = Matrix(matrixSize)
 payoffMatrixB = Matrix(matrixSize)
@@ -116,20 +132,7 @@ findDominantStrats()
 
 #find pure - check each opponent stategy and find best pay off, if both palyers have same optimals then we have pure
 #player a
-playerAPotentialPure = set()
-for colIndex in range(0, payoffMatrixA.getSize()):
-    col = payoffMatrixA.getCol(colIndex)
-    pair = str(col.index(max(col))) + "," + str(colIndex)
-    playerAPotentialPure.add(pair)
 
-playerBPotentialPure = set()
-for rowIndex in range(0, payoffMatrixB.getSize()):
-    row = payoffMatrixB.getRow(rowIndex)
-    pair = str(rowIndex) + "," + str(row.index(max(row)))
-    playerBPotentialPure.add(pair)
-
-pureStrats = playerAPotentialPure.intersection(playerBPotentialPure)
-print(pureStrats)
 
 print("A")
 payoffMatrixA.print()
