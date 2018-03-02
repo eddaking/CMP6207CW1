@@ -49,8 +49,35 @@ payoffMatrixB = Matrix(matrixSize)
 minPayoffsA = dict()
 for rowIndex in range(0, matrix.getSize()):
     row = matrix.getRow(rowIndex)
-    vals = [min(row), matrix(row)]
+    vals = [min(row), max(row)]
     minPayoffsA[rowIndex] = vals
+
+strictlyDominant = list()
+weaklyDominant = list()
+
+for testingIndex in range(0,len(vals)):
+    dominant = True
+    strictly = True
+    for rowIndex in range(0,len(vals):
+        if testingIndex != rowIndex:
+            if vals[testingIndex][0] < vals[rowIndex][1]:
+                dominant = False
+                break
+            elif vals[testingIndex][0] = vals[rowIndex][1]:
+                strictly = False
+    if dominant:
+        if strictly:
+            strictlyDominant.append(testingIndex)
+        else:
+            weaklyDominant.append(testingIndex)
+if len(strictlyDominant) == len(weaklyDominant) == 0:
+    print("There are no dominant strategies")
+elif len(strictlyDominant) > 0:
+    print(len(strictlyDominant))
+    print("Player A has a strictly dominant strategy with " + strictlyDominant[0])
+elif len(weaklyDominant) > 0:
+    print(len(weaklyDominant))
+    print("Player A has a strictly dominant strategy with " + weaklyDominant[0])
 
 minPayoffsB = dict()
 for rowIndex in range(0, matrix.getSize()):
@@ -66,7 +93,7 @@ for colIndex in range(0, matrix.getSize()):
     for outcome in col:
 
 
-payoffMatrixA.print()
-payoffMatrixB.print()
+#payoffMatrixA.print()
+#payoffMatrixB.print()
 
 
