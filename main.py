@@ -123,7 +123,7 @@ for colIndex in range(0, payoffMatrixA.getSize()):
     playerAPotentialPure.add(pair)
 
 playerAPotentialPure = list()
-for rowIndex in range(0, payoffMatrixB.getSize())
+for rowIndex in range(0, payoffMatrixB.getSize()):
     row = payoffMatrixB.getRow(rowIndex)
     pair = [rowIndex, row.index(max(row))]
     playerBPotentialPure.add(pair)
