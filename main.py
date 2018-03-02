@@ -66,7 +66,7 @@ def findDominantStrats():
             else:
                 weaklyDominant.append(testingIndex)
     if len(strictlyDominant) == len(weaklyDominant) == 0:
-        print("There are no dominant strategies")
+        print("There are no dominant strategies for A")
     elif len(strictlyDominant) > 0:
         print("Player A has a strictly dominant strategy with " + str(strictlyDominant[0]))
     elif len(weaklyDominant) > 0:
@@ -97,7 +97,7 @@ def findDominantStrats():
             else:
                 weaklyDominant.append(testingIndex)
     if len(strictlyDominant) == len(weaklyDominant) == 0:
-        print("There are no dominant strategies")
+        print("There are no dominant strategies for B")
     elif len(strictlyDominant) > 0:
         print("Player B has a strictly dominant strategy with " + str(strictlyDominant[0]))
     elif len(weaklyDominant) > 0:
@@ -131,7 +131,7 @@ payoffMatrixB = Matrix(matrixSize)
 findDominantStrats()
 
 #find pure - check each opponent stategy and find best pay off, if both palyers have same optimals then we have pure
-#player a
+findPureStrats()
 
 
 print("A")
