@@ -58,12 +58,12 @@ weaklyDominant = list()
 for testingIndex in range(0,len(vals)):
     dominant = True
     strictly = True
-    for rowIndex in range(0,len(vals)):
+    for rowIndex in range(0,len(minPayoffsA)):
         if testingIndex != rowIndex:
-            if vals[testingIndex][0] < vals[rowIndex][1]:
+            if minPayoffsA[testingIndex][0] < minPayoffsA[rowIndex][1]:
                 dominant = False
                 break
-            elif vals[testingIndex][0] == vals[rowIndex][1]:
+            elif minPayoffsA[testingIndex][0] == minPayoffsA[rowIndex][1]:
                 strictly = False
     if dominant:
         if strictly:
