@@ -73,17 +73,40 @@ for testingIndex in range(0,len(vals)):
 if len(strictlyDominant) == len(weaklyDominant) == 0:
     print("There are no dominant strategies")
 elif len(strictlyDominant) > 0:
-    print(len(strictlyDominant))
     print("Player A has a strictly dominant strategy with " + str(strictlyDominant[0]))
 elif len(weaklyDominant) > 0:
-    print(len(weaklyDominant))
     print("Player A has a strictly dominant strategy with " + str(weaklyDominant[0]))
 
-minPayoffsB = list()
-for rowIndex in range(0, payoffMatrixB.getSize()):
-    row = payoffMatrixB.getRow(rowIndex)
-    vals = [min(row), max(row)]
+minPayoffsA = list()
+for colIndex in range(0, payoffMatrixB.getSize()):
+    col = payoffMatrixB.getCol(colIndex)
+    vals = [min(col), max(col)]
     minPayoffsA.append(vals)
+
+strictlyDominant = list()
+weaklyDominant = list()
+
+for testingIndex in range(0,len(vals)):
+    dominant = True
+    strictly = True
+    for colIndex in range(0,len(minPayoffsA)):
+        if testingIndex != colIndex:
+            if minPayoffsA[testingIndex][0] < minPayoffsA[colIndex][1]:
+                dominant = False
+                break
+            elif minPayoffsA[testingIndex][0] == minPayoffsA[colIndex][1]:
+                strictly = False
+    if dominant:
+        if strictly:
+            strictlyDominant.append(testingIndex)
+        else:
+            weaklyDominant.append(testingIndex)
+if len(strictlyDominant) == len(weaklyDominant) == 0:
+    print("There are no dominant strategies")
+elif len(strictlyDominant) > 0:
+    print("Player B has a strictly dominant strategy with " + str(strictlyDominant[0]))
+elif len(weaklyDominant) > 0:
+    print("Player B has a strictly dominant strategy with " + str(weaklyDominant[0]))
 
 #find pure - check each opponent stategy and find best pay off, if both palyers have same optimals then we have pure
 #player a
@@ -93,5 +116,5 @@ for colIndex in range(0, payoffMatrixA.getSize()):
     #for outcome in col:
 
 
-#payoffMatrixA.print()
+payoffMatrixA.print()
 #payoffMatrixB.print()
