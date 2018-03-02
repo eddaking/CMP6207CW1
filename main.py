@@ -40,73 +40,79 @@ class Matrix:
         for r in self.matrix:
             print(r)
 
+def findDominantStrats():
+    minPayoffsA = list()
+    for rowIndex in range(0, payoffMatrixA.getSize()):
+        row = payoffMatrixA.getRow(rowIndex)
+        vals = [min(row), max(row)]
+        minPayoffsA.append(vals)
+
+    strictlyDominant = list()
+    weaklyDominant = list()
+
+    for testingIndex in range(0,len(vals)):
+        dominant = True
+        strictly = True
+        for rowIndex in range(0,len(minPayoffsA)):
+            if testingIndex != rowIndex:
+                if minPayoffsA[testingIndex][0] < minPayoffsA[rowIndex][1]:
+                    dominant = False
+                    break
+                elif minPayoffsA[testingIndex][0] == minPayoffsA[rowIndex][1]:
+                    strictly = False
+        if dominant:
+            if strictly:
+                strictlyDominant.append(testingIndex)
+            else:
+                weaklyDominant.append(testingIndex)
+    if len(strictlyDominant) == len(weaklyDominant) == 0:
+        print("There are no dominant strategies")
+    elif len(strictlyDominant) > 0:
+        print("Player A has a strictly dominant strategy with " + str(strictlyDominant[0]))
+    elif len(weaklyDominant) > 0:
+        print("Player A has a strictly dominant strategy with " + str(weaklyDominant[0]))
+
+    minPayoffsA = list()
+    for colIndex in range(0, payoffMatrixB.getSize()):
+        col = payoffMatrixB.getCol(colIndex)
+        vals = [min(col), max(col)]
+        minPayoffsA.append(vals)
+
+    strictlyDominant = list()
+    weaklyDominant = list()
+
+    for testingIndex in range(0,len(vals)):
+        dominant = True
+        strictly = True
+        for colIndex in range(0,len(minPayoffsA)):
+            if testingIndex != colIndex:
+                if minPayoffsA[testingIndex][0] < minPayoffsA[colIndex][1]:
+                    dominant = False
+                    break
+                elif minPayoffsA[testingIndex][0] == minPayoffsA[colIndex][1]:
+                    strictly = False
+        if dominant:
+            if strictly:
+                strictlyDominant.append(testingIndex)
+            else:
+                weaklyDominant.append(testingIndex)
+    if len(strictlyDominant) == len(weaklyDominant) == 0:
+        print("There are no dominant strategies")
+    elif len(strictlyDominant) > 0:
+        print("Player B has a strictly dominant strategy with " + str(strictlyDominant[0]))
+    elif len(weaklyDominant) > 0:
+        print("Player B has a strictly dominant strategy with " + str(weaklyDominant[0]))
+
+
+
 matrixSize = int(sys.argv[1])
 payoffMatrixA = Matrix(matrixSize)
 payoffMatrixB = Matrix(matrixSize)
 
+
 #find dominant strategies
 #one strat always yeilds better payoff than any other
-minPayoffsA = list()
-for rowIndex in range(0, payoffMatrixA.getSize()):
-    row = payoffMatrixA.getRow(rowIndex)
-    vals = [min(row), max(row)]
-    minPayoffsA.append(vals)
-
-strictlyDominant = list()
-weaklyDominant = list()
-
-for testingIndex in range(0,len(vals)):
-    dominant = True
-    strictly = True
-    for rowIndex in range(0,len(minPayoffsA)):
-        if testingIndex != rowIndex:
-            if minPayoffsA[testingIndex][0] < minPayoffsA[rowIndex][1]:
-                dominant = False
-                break
-            elif minPayoffsA[testingIndex][0] == minPayoffsA[rowIndex][1]:
-                strictly = False
-    if dominant:
-        if strictly:
-            strictlyDominant.append(testingIndex)
-        else:
-            weaklyDominant.append(testingIndex)
-if len(strictlyDominant) == len(weaklyDominant) == 0:
-    print("There are no dominant strategies")
-elif len(strictlyDominant) > 0:
-    print("Player A has a strictly dominant strategy with " + str(strictlyDominant[0]))
-elif len(weaklyDominant) > 0:
-    print("Player A has a strictly dominant strategy with " + str(weaklyDominant[0]))
-
-minPayoffsA = list()
-for colIndex in range(0, payoffMatrixB.getSize()):
-    col = payoffMatrixB.getCol(colIndex)
-    vals = [min(col), max(col)]
-    minPayoffsA.append(vals)
-
-strictlyDominant = list()
-weaklyDominant = list()
-
-for testingIndex in range(0,len(vals)):
-    dominant = True
-    strictly = True
-    for colIndex in range(0,len(minPayoffsA)):
-        if testingIndex != colIndex:
-            if minPayoffsA[testingIndex][0] < minPayoffsA[colIndex][1]:
-                dominant = False
-                break
-            elif minPayoffsA[testingIndex][0] == minPayoffsA[colIndex][1]:
-                strictly = False
-    if dominant:
-        if strictly:
-            strictlyDominant.append(testingIndex)
-        else:
-            weaklyDominant.append(testingIndex)
-if len(strictlyDominant) == len(weaklyDominant) == 0:
-    print("There are no dominant strategies")
-elif len(strictlyDominant) > 0:
-    print("Player B has a strictly dominant strategy with " + str(strictlyDominant[0]))
-elif len(weaklyDominant) > 0:
-    print("Player B has a strictly dominant strategy with " + str(weaklyDominant[0]))
+findDominantStrats()
 
 #find pure - check each opponent stategy and find best pay off, if both palyers have same optimals then we have pure
 #player a
