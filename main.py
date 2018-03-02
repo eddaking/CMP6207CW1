@@ -40,7 +40,7 @@ class Matrix:
         for r in self.matrix:
             print(r)
 
-matrixSize = sys.stdin.read()
+matrixSize = sys.argv[1]
 payoffMatrixA = Matrix(matrixSize)
 payoffMatrixB = Matrix(matrixSize)
 
@@ -90,10 +90,8 @@ for rowIndex in range(0, matrix.getSize()):
 for colIndex in range(0, matrix.getSize()):
     col = payoffMatrixA.getCol(colIndex)
 
-    for outcome in col:
+    #for outcome in col:
 
 
 #payoffMatrixA.print()
 #payoffMatrixB.print()
-
-
