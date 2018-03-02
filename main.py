@@ -58,7 +58,7 @@ weaklyDominant = list()
 for testingIndex in range(0,len(vals)):
     dominant = True
     strictly = True
-    for rowIndex in range(0,len(vals):
+    for rowIndex in range(0,len(vals)):
         if testingIndex != rowIndex:
             if vals[testingIndex][0] < vals[rowIndex][1]:
                 dominant = False
