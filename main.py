@@ -40,7 +40,7 @@ class Matrix:
         for r in self.matrix:
             print(r)
 
-matrixSize = sys.argv[1]
+matrixSize = int(sys.argv[1])
 payoffMatrixA = Matrix(matrixSize)
 payoffMatrixB = Matrix(matrixSize)
 
