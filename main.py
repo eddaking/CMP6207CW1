@@ -45,9 +45,15 @@ payoffMatrixA = Matrix(matrixSize)
 payoffMatrixB = Matrix(matrixSize)
 
 #find dominant strategies
+#one strat always yeilds better payoff than any other
 
+#find pure - check each opponent stategy and find best pay off, if both palyers have same optimals then we have pure
 #player a
-for row in matrix.getRow
+for colIndex in range(0, matrix.getSize):
+    col = payoffMatrixA.getCol(colIndex)
+
+    for outcome in col:
+
 
 payoffMatrixA.print()
 payoffMatrixB.print()
