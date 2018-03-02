@@ -74,10 +74,10 @@ if len(strictlyDominant) == len(weaklyDominant) == 0:
     print("There are no dominant strategies")
 elif len(strictlyDominant) > 0:
     print(len(strictlyDominant))
-    print("Player A has a strictly dominant strategy with " + strictlyDominant[0])
+    print("Player A has a strictly dominant strategy with " + str(strictlyDominant[0]))
 elif len(weaklyDominant) > 0:
     print(len(weaklyDominant))
-    print("Player A has a strictly dominant strategy with " + weaklyDominant[0])
+    print("Player A has a strictly dominant strategy with " + str(weaklyDominant[0]))
 
 minPayoffsB = list()
 for rowIndex in range(0, payoffMatrixB.getSize()):
