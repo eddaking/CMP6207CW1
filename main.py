@@ -8,8 +8,8 @@ import sys
 #               [0 0 0]
 
 class Matrix:
-    self.matrix = list()
     def __init__(self, stringInput):
+        self.matrix = list()
         tempMatrix = stringInput[0].split(";")
         for r in tempMatrix:
             self.matrix.append(r.split(" "))
