@@ -118,7 +118,7 @@ def findPureStrats():
 
     pureStrats = playerAPotentialPure.intersection(playerBPotentialPure)
     if len(pureStrats) > 0:
-        print("Pure strategies: " + pureStrats)
+        print("Pure strategies: " + str(pureStrats))
     else:
         print("There are no Pure Strategies")
 matrixSize = int(sys.argv[1])
