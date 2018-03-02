@@ -116,10 +116,20 @@ findDominantStrats()
 
 #find pure - check each opponent stategy and find best pay off, if both palyers have same optimals then we have pure
 #player a
+playerAPotentialPure = set()
 for colIndex in range(0, payoffMatrixA.getSize()):
     col = payoffMatrixA.getCol(colIndex)
+    pair = [col.index(max(col)), colIndex]
+    playerAPotentialPure.add(pair)
 
-    #for outcome in col:
+playerAPotentialPure = list()
+for rowIndex in range(0, payoffMatrixB.getSize())
+    row = payoffMatrixB.getRow(rowIndex)
+    pair = [rowIndex, row.index(max(row))]
+    playerBPotentialPure.add(pair)
+
+pureStrats = playerAPotentialPure.intersection(playerBPotentialPure)
+print(pureStrats)
 
 print("A")
 payoffMatrixA.print()
