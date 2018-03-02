@@ -1,6 +1,6 @@
 import sys
 #import matrix in the form a b c;d e f;h i j;.k l m;o p q;r s t;
-#where the matix : [a b c] is the payoff matrix for player 1 and [k l m] is the payoff matrix for the second player
+#where the matrix : [a b c] is the payoff matrix for player 1 and [k l m] is the payoff matrix for the second player
 #                  [e f g]                                       [o p q]
 #                  [h i j]                                       [r s t]
 
@@ -10,19 +10,19 @@ import sys
 class Matrix:
     matrix = list()
     def __init__(self, stringInput):
-        matix = list()
+        matrix = list()
         tempMatrix = stringInput[0].split(";")
         for r in matrix:
             matrix.append(r.split(" "))
     
     def get(self, i, j):
-        return matix[i][j]
+        return matrix[i][j]
 
     def setElem(self, i, j, val):
         matrix[i][j] = val
     
     def print(self):
-        for r in matix:
+        for r in matrix:
             print(r)
 
 inputMatrix = sys.stdin.read()
