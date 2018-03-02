@@ -46,10 +46,21 @@ payoffMatrixB = Matrix(matrixSize)
 
 #find dominant strategies
 #one strat always yeilds better payoff than any other
+minPayoffsA = dict()
+for rowIndex in range(0, matrix.getSize()):
+    row = matrix.getRow(rowIndex)
+    vals = [min(row), matrix(row)]
+    minPayoffsA[rowIndex] = vals
+
+minPayoffsB = dict()
+for rowIndex in range(0, matrix.getSize()):
+    row = matrix.getRow(rowIndex)
+    vals = [min(row), matrix(row)]
+    minPayoffsA[rowIndex] = vals
 
 #find pure - check each opponent stategy and find best pay off, if both palyers have same optimals then we have pure
 #player a
-for colIndex in range(0, matrix.getSize):
+for colIndex in range(0, matrix.getSize()):
     col = payoffMatrixA.getCol(colIndex)
 
     for outcome in col:
